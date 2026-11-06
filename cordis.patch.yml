@@ -1,0 +1,5 @@
+# dsh-skin-own bundle patch.
+#
+# 一行：本插件自己。使用者層要關它就 `- id: skin-own` + `disabled: true`。
+- id: skin-own
+  name: '@snow-the/dsh-skin-own'

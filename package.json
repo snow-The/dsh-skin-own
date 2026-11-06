@@ -1,0 +1,27 @@
+{
+  "name": "@snow-the/dsh-skin-own",
+  "version": "0.1.0",
+  "description": "Apply the user's own DSH skins from ~/.dsh/skins without any third-party plugin: serves the active skin CSS and injects the stylesheet into the web shell index (server-side, no client bundle needed).",
+  "type": "module",
+  "main": "lib/index.js",
+  "exports": {
+    ".": "./lib/index.js",
+    "./cordis.patch.yml": "./cordis.patch.yml",
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "lib/index.js",
+    "cordis.patch.yml",
+    "README.md",
+    "icon.svg"
+  ],
+  "engines": {
+    "dsh": ">=0.2.2-rc.1"
+  },
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    }
+  },
+  "license": "MIT"
+}
