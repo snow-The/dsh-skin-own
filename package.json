@@ -1,16 +1,18 @@
 {
   "name": "@snow-the/dsh-skin-own",
-  "version": "0.1.0",
-  "description": "Apply the user's own DSH skins from ~/.dsh/skins without any third-party plugin: serves the active skin CSS and injects the stylesheet into the web shell index (server-side, no client bundle needed).",
+  "version": "0.2.0",
+  "description": "Apply the user's own DSH skins from ~/.dsh/skins without any third-party plugin: serves the active skin CSS and mounts it at runtime from a tiny client module (a server-side <link> loses the cascade to the app's own stylesheet).",
   "type": "module",
   "main": "lib/index.js",
   "exports": {
     ".": "./lib/index.js",
+    "./client": "./lib/client.js",
     "./cordis.patch.yml": "./cordis.patch.yml",
     "./package.json": "./package.json"
   },
   "files": [
     "lib/index.js",
+    "lib/client.js",
     "cordis.patch.yml",
     "README.md",
     "icon.svg"
@@ -21,6 +23,13 @@
   "dsh": {
     "bundle": {
       "patch": "./cordis.patch.yml"
+    },
+    "client": {
+      "inject": [
+        "@deepseek-ai/dsh-client-runtime"
+      ],
+      "platform": "web",
+      "immediately": true
     }
   },
   "license": "MIT"

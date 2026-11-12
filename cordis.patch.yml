@@ -1,5 +1,9 @@
-# dsh-skin-own bundle patch.
+# dsh-skin-own bundle layer.
 #
-# 一行：本插件自己。使用者層要關它就 `- id: skin-own` + `disabled: true`。
-- id: skin-own
-  name: '@snow-the/dsh-skin-own'
+# 形狀必須是 `- insert:` 加一個 list —— 這裡的每一列是**宣告**（帶 `name`）。
+# 裸列 `- id: skin-own` 會被讀成「patch 某個已存在的 entry」，於是載入時報
+#   dsh: [@snow-the/dsh-skin-own] patch: entry "skin-own" not found
+# 而且那一列不會出現（2026-11-06 實測，第一次就踩）。
+- insert:
+    - id: skin-own
+      name: '@snow-the/dsh-skin-own'
